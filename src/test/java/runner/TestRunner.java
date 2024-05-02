@@ -6,11 +6,12 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/resources/features/Search.feature",
+@CucumberOptions(features="src/test/resources/features",
                  glue= {"stepdefinations","hooks"},
                  publish=true,  // gives cloud link of reports
                  plugin ={"pretty","html:target/CucumberReports/CucumberReport.html", // result in nice detailed format
-                		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", //extent report
+                		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",//extent report
+                		"timeline:test-output-thread/"   // plugin used during parallel report generation
          				}  
                  
 		)
