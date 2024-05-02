@@ -11,7 +11,7 @@ public class ConfigReader {
 		
 		Properties prop = new Properties();
 		
-		File proFilePath = new File(System.getProperty("user.dir")+"\\src\\test\\resource\\config\\config.properties");
+		File proFilePath = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\config\\config.properties");
 		
 				
 		
