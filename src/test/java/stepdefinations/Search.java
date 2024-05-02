@@ -51,7 +51,7 @@ public class Search {
 		 searchresult = new SearchResult(driver);
 		
         Assert.assertTrue(searchresult.searchproductDisplayed());
-        Assert.fail();   // intentionally failed to check screentshot code 
+       // Assert.fail();   // intentionally failed to check screentshot code 
 	}
 	
 	@When("User enter invalid product {string} into the Search box field")
