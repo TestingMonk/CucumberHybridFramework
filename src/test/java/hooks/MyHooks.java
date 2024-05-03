@@ -2,6 +2,7 @@ package hooks;
 
 import java.util.Properties;
 
+import org.junit.Assume;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.TakesScreenshot;
@@ -18,7 +19,7 @@ public class MyHooks {
  private ConfigReader configreader;
  private Driverfactory driverfactory;
 	
-	@Before
+	@Before(order=0)
 	public void setup() {
 		
 	configreader = new ConfigReader();
@@ -34,7 +35,17 @@ public class MyHooks {
 		
 	}
 	
-	@After
+	// below code will skip scenario on the basis of the tags & it will reflect in pdf report as well
+	@Before(value= "@skip_scenario")
+	public void skip_scenario(Scenario scenario) {
+		
+	System.out.println("Skipped scenario is " + scenario.getName());
+	Assume.assumeTrue(false);
+	}
+	
+	
+	
+	@After(order=0)
 	public  void tearDown(Scenario scenario) {
 		
 		//getname return name of failed test

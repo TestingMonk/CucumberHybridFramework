@@ -39,7 +39,7 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
 		<!-- report name -->
@@ -49,7 +49,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>May 3, 2024 08:20:13 pm</span>
+			<span class='label blue darken-3 suite-start-time'>May 4, 2024 12:50:56 am</span>
 			</a>
 		</ul>
 	</div>
@@ -64,13 +64,26 @@
 				<i class='material-icons'>warning</i> Status
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
-										<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+										<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
 			</div>
 			<!-- test toggle -->
 			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@Search</a></li>
+					<li><a href='#'>@Smoke</a></li>
+					<li><a href='#'>@Regression</a></li>
+					<li><a href='#'>@skip_scenario</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
 			<!-- category toggle -->
 			<!-- clear filters -->
 			<div class='chip transparent hide'>
@@ -112,10 +125,10 @@
                     <span class='strong'>0</span> features passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>
-                    1</span> features failed, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
-                    0</span> skipped
+                    0</span> features failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>
+                    1</span> skipped
                 </div>
             </div>
         </div>
@@ -126,14 +139,14 @@
                     <canvas id='child-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='0%'>
-                    <span class='strong'>0</span> scenarios passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='66%'>
+                    <span class='strong'>2</span> scenarios passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>
-                    1</span> scenarios failed, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
-                    0</span> skipped, 
+                    0</span> scenarios failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='33%'>
+                    1</span> skipped, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
                     0</span> others
                 </div>
@@ -146,14 +159,14 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='80%'>
-                    <span class='strong'>4</span> steps passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='66%'>
+                    <span class='strong'>8</span> steps passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='20%'>
-                    1</span> steps failed, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
-                    0</span> skipped, 
+                    0</span> steps failed, 
+                    <span class='strong tooltipped' data-position='top' data-tooltip='33%'>
+                    4</span> skipped, 
                     <span class='strong tooltipped' data-position='top' data-tooltip='0%'>
                     0</span> others
                 </div>
@@ -174,11 +187,11 @@
 	<div class='subview-left left'>
 		<div class='view-summary'>
 			<ul id='test-collection' class='test-collection'>
-				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf skip' status='skip' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Search Functionality</span>
-						<span class='test-time'>May 3, 2024 08:20:15 pm</span>
-						<span class='test-status right fail'>Fail</span>
+						<span class='test-time'>May 4, 2024 12:50:57 am</span>
+						<span class='test-status right skip'>Skip</span>
 					</div>
 					<div class='test-content hide'>
 <div class="sr-filters bdd-filters">
@@ -188,14 +201,18 @@
 	<a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
 </div>
 
-<div class='scenario node' test-id='2' status='fail'>
+<div class='scenario node' test-id='2' status='pass'>
 
-	<span class='duration right label'>00 00 09.986</span>
+	<span class='duration right label'>00 00 07.136</span>
 	<div class="bdd-test">
-		<div class="scenario-name"><span class='status fail' title='Fail'><i class='material-icons'>cancel</i></span> Scenario: User searches for a valid product</div>
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: User searches for a valid product</div>
 	</div>
 	
 	
+		<div class='category-list'>
+				<span class='category label'>@Smoke</span>
+				<span class='category label'>@Search</span>
+		</div>
 	
 	<ul class='steps'>
 		<li test-id='4' class='node given Pass' status='Pass'>
@@ -213,25 +230,87 @@
 
 
 		</li>
-		<li test-id='7' class='node then Fail' status='Fail'>
-			<div class="step-name" title="(stepdefinations.Search.User_should_get_valid_product_displayed_in_Search_results())"><span class='status fail' title='Fail'><i class='material-icons'>cancel</i></span>Then User should get valid product displayed in Search results</div>
+		<li test-id='7' class='node then Pass' status='Pass'>
+			<div class="step-name" title="(stepdefinations.Search.User_should_get_valid_product_displayed_in_Search_results())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then User should get valid product displayed in Search results</div>
 
 
-					<textarea disabled class="code-block">java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:87)
-	at org.junit.Assert.fail(Assert.java:96)
-	at stepdefinations.Search.User_should_get_valid_product_displayed_in_Search_results(Search.java:54)
-	at ✽.User should get valid product displayed in Search results(file:///F:/Eclipse_workspace_22March_2024/eclipse-workspace/CucumberHybridProject/src/test/resources/features/Search.feature:7)
-</textarea>
 		</li>
-		<li test-id='8' class='node * Pass' status='Pass'>
-			<div class="step-name" title="(AFTER)"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>hooks.MyHooks.tearDown(io.cucumber.java.Scenario)</div>
+	</ul>
+</div>
+<div class='scenario node' test-id='9' status='pass'>
+
+	<span class='duration right label'>00 00 06.675</span>
+	<div class="bdd-test">
+		<div class="scenario-name"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span> Scenario: User searches for an invalid product</div>
+	</div>
+	
+	
+		<div class='category-list'>
+				<span class='category label'>@Smoke</span>
+				<span class='category label'>@Search</span>
+		</div>
+	
+	<ul class='steps'>
+		<li test-id='11' class='node given Pass' status='Pass'>
+			<div class="step-name" title="(stepdefinations.Search.User_opens_the_application())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Given User opens the application</div>
 
 
-					<div class="node-step">_U_s_e_r_ _s_e_a_r_c_h_e_s_ _f_o_r_ _a_ _v_a_l_i_d_ _p_r_o_d_u_c_t_</div>
-					<div class='screenshots'>
-						<img width='80' height='40' onerror='this.style.display="none"' data-featherlight='../embedded1.png' src='../embedded1.png'>
-					</div>
+		</li>
+		<li test-id='12' class='node when Pass' status='Pass'>
+			<div class="step-name" title="(stepdefinations.Search.User_enter_invalid_product_into_the_Search_box_field(java.lang.String))"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>When User enter invalid product "Honda" into the Search box field</div>
+
+
+		</li>
+		<li test-id='13' class='node and Pass' status='Pass'>
+			<div class="step-name" title="(stepdefinations.Search.User_clicks_on_Search_button())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>And User clicks on Search button</div>
+
+
+		</li>
+		<li test-id='14' class='node then Pass' status='Pass'>
+			<div class="step-name" title="(stepdefinations.Search.User_should_get_a_message_about_no_product_matching())"><span class='status pass' title='Pass'><i class='material-icons'>check_circle</i></span>Then User should get a message about no product matching</div>
+
+
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='16' status='skip'>
+
+	<span class='duration right label'>00 00 04.756</span>
+	<div class="bdd-test">
+		<div class="scenario-name"><span class='status skip' title='Skip'><i class='material-icons'>redo</i></span> Scenario: User searches without any product</div>
+	</div>
+	
+	
+		<div class='category-list'>
+				<span class='category label'>@Regression</span>
+				<span class='category label'>@skip_scenario</span>
+				<span class='category label'>@Search</span>
+		</div>
+	
+	<ul class='steps'>
+		<li test-id='19' class='node given Skip' status='Skip'>
+			<div class="step-name" title="(stepdefinations.Search.User_opens_the_application())"><span class='status skip' title='Skip'><i class='material-icons'>redo</i></span>Given User opens the application</div>
+
+
+					<div class="node-step">Step skipped</div>
+		</li>
+		<li test-id='20' class='node when Skip' status='Skip'>
+			<div class="step-name" title="(stepdefinations.Search.User_dont_enter_any_product_name_into_the_Search_box_field())"><span class='status skip' title='Skip'><i class='material-icons'>redo</i></span>When User dont enter any product name into the Search box field</div>
+
+
+					<div class="node-step">Step skipped</div>
+		</li>
+		<li test-id='21' class='node and Skip' status='Skip'>
+			<div class="step-name" title="(stepdefinations.Search.User_clicks_on_Search_button())"><span class='status skip' title='Skip'><i class='material-icons'>redo</i></span>And User clicks on Search button</div>
+
+
+					<div class="node-step">Step skipped</div>
+		</li>
+		<li test-id='22' class='node then Skip' status='Skip'>
+			<div class="step-name" title="(stepdefinations.Search.User_should_get_a_message_about_no_product_matching())"><span class='status skip' title='Skip'><i class='material-icons'>redo</i></span>Then User should get a message about no product matching</div>
+
+
+					<div class="node-step">Step skipped</div>
 		</li>
 	</ul>
 </div>
@@ -259,7 +338,7 @@
 	</div>
 	<!-- subview right -->
 </div>
-<!-- test view --><div id='exception-view' class='view hide'>
+<!-- test view --><div id='category-view' class='view hide'>
 	<section id='controls'>
 		<div class='controls grey lighten-4'>
 			<!-- search -->
@@ -276,34 +355,149 @@
 	</section>
 	<div class='subview-left left'>
 		<div class='view-summary'>
-			<ul id='exception-collection' class='exception-collection'>
-				<li class='exception displayed active'>
-					<div class='exception-heading'>
-						<span class='exception-name'>java.lang.AssertionError</span>
-						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+			<ul id='category-collection' class='category-collection'>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Search</span>
+						<span class='category-status right'>
+						<span class='label pass'>2</span>
+						<span class='label others'>1</span>
+						</span>
 					</div>
-					<div class='exception-content hide'>
-						<div class='exception-tests'>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
+							
+							<span status="skip" class='label yellow darken-2 white-text'>Skipped: 1</span>
+						</div>
+						<div class='category-tests'>
 							<table class='bordered table-results'>
 								<thead>
 									<tr>
 										<th>Timestamp</th>
 										<th>TestName</th>
-										<th>StackTrace</th>
+										<th>Status</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>May 3, 2024 08:20:24 pm</td>
-										<td class='linked' test-id='7'>Then User should get valid product displayed in Search results</td>
-										<td>
-											<textarea disabled class="code-block">java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:87)
-	at org.junit.Assert.fail(Assert.java:96)
-	at stepdefinations.Search.User_should_get_valid_product_displayed_in_Search_results(Search.java:54)
-	at ✽.User should get valid product displayed in Search results(file:///F:/Eclipse_workspace_22March_2024/eclipse-workspace/CucumberHybridProject/src/test/resources/features/Search.feature:7)
-</textarea>
-										</td>
+										<td>May 4, 2024 12:50:57 am</td>
+										<td class='linked' test-id='2'>User searches for a valid product</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+									<tr>
+										<td>May 4, 2024 12:51:04 am</td>
+										<td class='linked' test-id='9'>User searches for an invalid product</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+									<tr>
+										<td>May 4, 2024 12:51:11 am</td>
+										<td class='linked' test-id='16'>User searches without any product</td>
+										<td><span class='test-status Skip'>Skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Smoke</span>
+						<span class='category-status right'>
+						<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 4, 2024 12:50:57 am</td>
+										<td class='linked' test-id='2'>User searches for a valid product</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+									<tr>
+										<td>May 4, 2024 12:51:04 am</td>
+										<td class='linked' test-id='9'>User searches for an invalid product</td>
+										<td><span class='test-status Pass'>Pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Regression</span>
+						<span class='category-status right'>
+						<span class='label others'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span status="skip" class='label yellow darken-2 white-text'>Skipped: 1</span>
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 4, 2024 12:51:11 am</td>
+										<td class='linked' test-id='16'>User searches without any product</td>
+										<td><span class='test-status Skip'>Skip</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@skip_scenario</span>
+						<span class='category-status right'>
+						<span class='label others'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							
+							<span status="skip" class='label yellow darken-2 white-text'>Skipped: 1</span>
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>May 4, 2024 12:51:11 am</td>
+										<td class='linked' test-id='16'>User searches without any product</td>
+										<td><span class='test-status Skip'>Skip</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -315,11 +509,11 @@
 	</div>
 	<div class='subview-right left'>
 		<div class='view-summary'>
-			<h5 class='exception-name'></h5>
+			<h5 class='category-name'></h5>
 		</div>
 	</div>
 </div>
-<!-- exception view --><div id='dashboard-view' class='view hide'>
+<!-- category view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -333,31 +527,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>5</div>
+					<div class='panel-lead'>12</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>May 3, 2024 08:20:13 pm</div>
+					<div class='panel-lead'>May 4, 2024 12:50:56 am</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>May 3, 2024 08:20:25 pm</div>
+			 		<div class='panel-lead'>May 4, 2024 12:51:16 am</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>00 00 11.827</div>
+					<div class='panel-lead'>00 00 19.879</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -388,6 +582,57 @@
 					</table>
 				</div>
 			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Skipped</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@Search</td>
+							<td>2</td>
+							<td>0</td>
+							<td>1</td>
+							<td>
+									66.667%
+							</td>
+						</tr>
+						<tr>
+							<td>@Smoke</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+						<tr>
+							<td>@Regression</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@skip_scenario</td>
+							<td>0</td>
+							<td>0</td>
+							<td>1</td>
+							<td>
+									0%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -398,33 +643,33 @@
 			var statusGroup = {
                 parentCount: 1,
 				passParent: 0,
-				failParent: 1,
+				failParent: 0,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
-				skipParent: 0,
-				childCount: 1,
-				passChild: 0,
-				failChild: 1,
+				skipParent: 1,
+				childCount: 3,
+				passChild: 2,
+				failChild: 0,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
-				skipChild: 0,
+				skipChild: 1,
 				infoChild: 0,
-				grandChildCount: 5,
-				passGrandChild: 4,
-				failGrandChild: 1,
+				grandChildCount: 12,
+				passGrandChild: 8,
+				failGrandChild: 0,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 0,
+				skipGrandChild: 4,
 				infoGrandChild: 0,
 			};
 			</script>
 		
 		<script>
 			var timeline = {
-			        "Search Functionality":10
+			        "Search Functionality":18.626
 			};
 		</script>
 		
